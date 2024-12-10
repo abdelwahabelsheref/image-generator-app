@@ -1,25 +1,20 @@
+# Use the official lightweight Python image with the necessary version
 FROM python:3.9-slim
 
-# إعداد البيئة
+# Set the working directory in the container
 WORKDIR /app
 
-# تثبيت حزم النظام المطلوبة (بما في ذلك distutils)
-RUN apt-get update && apt-get install -y \
-    python3-distutils \
-    python3-apt \
-    && apt-get clean
-
-# نسخ متطلبات المشروع
+# Copy the requirements file to the working directory
 COPY requirements.txt .
 
-# تثبيت المكتبات المطلوبة
+# Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# نسخ باقي ملفات المشروع
+# Copy the application files to the working directory
 COPY . .
 
-# تعريف المنفذ
+# Expose the port the app runs on
 EXPOSE 5000
 
-# تشغيل التطبيق
+# Command to run the application
 CMD ["python", "app.py"]
