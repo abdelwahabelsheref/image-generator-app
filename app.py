@@ -1,4 +1,3 @@
-
 # استيراد المكتبات
 from flask import Flask, render_template_string, request, jsonify
 from diffusers import StableDiffusionPipeline
@@ -7,7 +6,7 @@ from pyngrok import ngrok
 from PIL import Image
 import io
 import base64
-import threading
+import subprocess
 
 # إعداد تطبيق Flask
 app = Flask(__name__)
@@ -166,20 +165,11 @@ def generate_image():
         print(f"Error generating image: {e}")
         return render_template_string(html_template, error="An error occurred while generating the image. Please try again.")
 
-# تشغيل Flask في Thread منفصل
-def run_app():
+# تشغيل Flask
+if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000)
-
-thread = threading.Thread(target=run_app)
-thread.start()
-
-# إضافة authtoken إلى ngrok
-import subprocess
-
-# إضافة التوكن إلى ngrok
-subprocess.run(["ngrok", "config", "add-authtoken", "2ptpufdKxJl8OzHbeXHYxe12kJQ_41VWHjshbtd2ZTzGi4ayS"])
 
 # توصيل التطبيق بالإنترنت باستخدام ngrok
 print("Starting ngrok...")
-public_url = ngrok.connect(5000)
+public_url = ngrok.connect(8000)
 print(f"Your app is live at: {public_url}")
