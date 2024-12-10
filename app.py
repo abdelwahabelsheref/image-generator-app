@@ -170,7 +170,7 @@ def generate_image():
 
 # تشغيل Flask في Thread منفصل
 def run_app():
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=8000)
 
 thread = threading.Thread(target=run_app)
 thread.start()
