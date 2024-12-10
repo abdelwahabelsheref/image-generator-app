@@ -174,7 +174,10 @@ thread = threading.Thread(target=run_app)
 thread.start()
 
 # إضافة authtoken إلى ngrok
-!ngrok config add-authtoken 2ptpufdKxJl8OzHbeXHYxe12kJQ_41VWHjshbtd2ZTzGi4ayS
+import subprocess
+
+# إضافة التوكن إلى ngrok
+subprocess.run(["ngrok", "config", "add-authtoken", "2ptpufdKxJl8OzHbeXHYxe12kJQ_41VWHjshbtd2ZTzGi4ayS"])
 
 # توصيل التطبيق بالإنترنت باستخدام ngrok
 print("Starting ngrok...")
