@@ -1,5 +1,5 @@
-Flask==2.2.2
-torch==2.0.0
-Pillow==9.2.0
-gunicorn==20.1.0
-diffusers==0.16.0  # أضف أي مكتبات أخرى تحتاجها
+Flask
+torch
+Pillow
+gunicorn
+diffusers
