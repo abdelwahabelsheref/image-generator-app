@@ -2,11 +2,9 @@
 from flask import Flask, render_template_string, request, jsonify
 from diffusers import StableDiffusionPipeline
 import torch
-from pyngrok import ngrok
 from PIL import Image
 import io
 import base64
-import subprocess
 
 # إعداد تطبيق Flask
 app = Flask(__name__)
@@ -129,22 +127,6 @@ def generate_image():
     image_format = request.form['format']
     quality = int(request.form['quality']) if image_format == "jpeg" else None
 
-    # تحسين البرومبتات (إضافة التفاصيل الواقعية)
-    if prompt.lower() == "sunset over a mountain":
-        prompt = "A breathtaking sunset over a snow-covered mountain, with the sky painted in shades of orange, pink, and purple, and the sun just above the horizon."
-    elif prompt.lower() == "futuristic city":
-        prompt = "A futuristic cityscape at night, with towering glass skyscrapers, neon signs flashing, flying cars zooming through the air, and a vibrant bustling street filled with people walking and robots working in the background."
-    elif prompt.lower() == "lion in the wild":
-        prompt = "A realistic close-up of a majestic lion with a thick golden mane, standing tall on a rocky cliff, with the sun casting dramatic shadows across its face, and the savannah stretching out in the background under a bright blue sky."
-    elif prompt.lower() == "magical forest":
-        prompt = "A magical forest with glowing trees, sparkling rivers, and mystical creatures flying around, under a starry sky filled with glowing constellations."
-    elif prompt.lower() == "warrior princess":
-        prompt = "A warrior princess with golden armor, holding a glowing sword, standing on a cliff at sunset, her long hair blowing in the wind, with a magical energy aura around her, and a distant kingdom in the background."
-    elif prompt.lower() == "dragon in the sky":
-        prompt = "A majestic dragon soaring through a dark stormy sky, with its wings spread wide, scales glistening in the flashes of lightning, and glowing eyes piercing through the dark clouds."
-    elif prompt.lower() == "desert clock":
-        prompt = "A surreal scene of a giant clock melting over a desert landscape, with the hands of the clock distorted and draped over the sand, under a bright blue sky with distant mountains in the background."
-
     try:
         print(f"Generating image for prompt: {prompt}")
         image = pipe(prompt, num_inference_steps=50).images[0]
@@ -168,8 +150,3 @@ def generate_image():
 # تشغيل Flask
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000)
-
-# توصيل التطبيق بالإنترنت باستخدام ngrok
-print("Starting ngrok...")
-public_url = ngrok.connect(8000)
-print(f"Your app is live at: {public_url}")
