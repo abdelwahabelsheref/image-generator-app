@@ -1,11 +1,4 @@
-setuptools
-wheel
 flask
 diffusers
-transformers
-accelerate
-safetensors
-pyngrok
 torch
 Pillow
-
