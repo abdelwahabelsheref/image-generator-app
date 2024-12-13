@@ -56,8 +56,11 @@ def generate_image():
 
     # نفس الكود كما هو لإدارة المدخلات
     try:
-        # نفس الكود الخاص بتوليد الصور
+        # هذا هو مكان التعديل الذي طلبته
+        print("This is inside the try block")
+        # هنا يأتي باقي الكود الخاص بتوليد الصورة
     except Exception as e:
+        print(f"An error occurred: {e}")
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
