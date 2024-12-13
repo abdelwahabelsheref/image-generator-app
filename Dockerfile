@@ -1,7 +1,9 @@
 FROM python:3.9-slim
 
-# تثبيت المتطلبات
-RUN apt-get update && apt-get install -y git wget && rm -rf /var/lib/apt/lists/*
+# تثبيت المتطلبات الأساسية
+RUN apt-get update && apt-get install -y git wget ffmpeg libgl1 && rm -rf /var/lib/apt/lists/*
+
+# نسخ وإعداد المتطلبات
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
