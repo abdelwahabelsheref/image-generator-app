@@ -1,4 +1,5 @@
 Flask==2.2.2
 torch==1.13.1
-diffusers==0.15.0
 Pillow==9.2.0
+gunicorn==20.1.0
+diffusers==0.16.0  # أضف أي مكتبات أخرى تحتاجها
