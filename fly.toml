@@ -1,12 +1,11 @@
-app = "image-generator-app"
+# fly.toml for your app
+app = "image-generator-app"  # اسم التطبيق الذي اخترته
 
 [build]
-builder = "heroku/buildpacks:20"
+  builder = "heroku/buildpacks:20"  # يحدد Buildpack لاستخدامه
+  # هذا يحدد أنك تستخدم Buildpacks بدلاً من Docker
 
 [[services]]
-internal_port = 8000
-http_checks = []
-
-[[services.ports]]
-port = 80
-handlers = ["http"]
+internal_port = 8000  # تأكد من أن البورت هو 8000
+force_https = true
+protocol = "tcp"
