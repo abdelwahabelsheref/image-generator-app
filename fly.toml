@@ -1,12 +1,12 @@
-app = "your-app-name"
+app = "image-generator-app"
 
 [build]
-  dockerfile = "Dockerfile"
+builder = "heroku/buildpacks:20"
 
 [[services]]
-  internal_port = 8000
-  processes = ["app"]
+internal_port = 8000
+http_checks = []
 
-  [[services.ports]]
-    handlers = ["http"]
-    port = 80
+[[services.ports]]
+port = 80
+handlers = ["http"]
