@@ -2,3 +2,4 @@ flask
 diffusers
 torch
 Pillow
+transformers
