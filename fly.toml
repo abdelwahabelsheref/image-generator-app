@@ -1,10 +1,23 @@
-app = "image-generator-app"  # اسم التطبيق
+# fly.toml app configuration file generated for image-generator-app on 2024-12-14T00:09:00Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-[[services]]
-internal_port = 8000  # البورت الداخلي
-protocol = "tcp"  # تأكد أن البروتوكول هو TCP
-force_https = true
+app = 'image-generator-app'
+primary_region = 'lax'
 
-[[services.ports]]
-handlers = ["http"]
-port = 80  # البورت الخارجي الافتراضي
+[build]
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+  memory_mb = 2048
