@@ -1,7 +1,10 @@
-# fly.toml for your app
-app = "image-generator-app"  # اسم التطبيق الذي اخترته
+app = "image-generator-app"  # اسم التطبيق
 
 [[services]]
-internal_port = 8000  # تأكد من أن البورت هو 8000
+internal_port = 8000  # البورت الداخلي
+protocol = "tcp"  # تأكد أن البروتوكول هو TCP
 force_https = true
-protocol = "tcp"
+
+[[services.ports]]
+handlers = ["http"]
+port = 80  # البورت الخارجي الافتراضي
