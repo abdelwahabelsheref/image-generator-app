@@ -17,7 +17,7 @@ primary_region = 'lax'
 
 
 [[vm]]
-  memory = '1gb'
+  memory = '2gb'
   cpu_kind = 'shared'
-  cpus = 1
-  memory_mb = 2048
+  cpus = 2
+  memory_mb = 4096
