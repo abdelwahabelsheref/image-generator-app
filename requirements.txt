@@ -1,5 +1,5 @@
-Flask
-torch
+flask
+torch==1.13.0+cpu
 Pillow
 gunicorn
 diffusers
