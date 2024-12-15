@@ -4,3 +4,4 @@ Pillow
 gunicorn
 diffusers
 transformers
+accelerate
