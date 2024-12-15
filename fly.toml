@@ -1,8 +1,4 @@
-# fly.toml app configuration file generated for image-generator-app on 2024-12-14T00:09:00Z
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
+# fly.toml app configuration file generated for image-generator-app
 app = 'image-generator-app'
 primary_region = 'lax'
 
@@ -16,9 +12,8 @@ primary_region = 'lax'
   min_machines_running = 1
   processes = ['app']
 
-
 [[vm]]
-  memory = '2gb'
+  memory = '2gb' # قد تحتاج إلى زيادة الذاكرة إذا كان تحميل النموذج يتطلب موارد أكبر
   cpu_kind = 'shared'
   cpus = 2
   memory_mb = 4096
