@@ -10,6 +10,7 @@ WORKDIR /app
 
 # نسخ متطلبات Python وتثبيتها
 COPY requirements.txt .
+RUN python -m pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # نسخ باقي الملفات
