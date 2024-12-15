@@ -1,5 +1,5 @@
 flask
-torch==1.13.0+cpu
+torch>=2.0.0
 Pillow
 gunicorn
 diffusers
