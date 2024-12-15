@@ -1,4 +1,3 @@
-# استخدم صورة Python الرسمية
 FROM python:3.10-slim
 
 # تثبيت المتطلبات الأساسية للنظام
@@ -9,7 +8,7 @@ RUN apt-get update && apt-get install -y \
 # إعداد العمل
 WORKDIR /app
 
-# تثبيت المتطلبات
+# نسخ متطلبات Python وتثبيتها
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
